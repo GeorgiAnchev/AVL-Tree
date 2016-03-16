@@ -10,6 +10,10 @@ namespace AVL_Tree
     public partial class Tree : IEnumerable
     {
         private int size;
+
+        /// <summary>
+        /// Size of the tree.
+        /// </summary>
         public int Size
         {
             get
@@ -17,6 +21,7 @@ namespace AVL_Tree
                 return this.size;
             }
         }
+
         private Node root;
 
         public Tree()
@@ -25,6 +30,11 @@ namespace AVL_Tree
             this.root = null;
         }
 
+        /// <summary>
+        /// Inserts a node.
+        /// </summary>
+        /// <param name="data">The data of the node.</param>
+        /// <returns>True if insertion is successful, false if the node is already in the tree.</returns>
         public bool Insert(int data)
         {
             if(this.root == null)
@@ -312,6 +322,11 @@ namespace AVL_Tree
             return rightLeft;
         }
 
+        /// <summary>
+        /// Deletes a node.
+        /// </summary>
+        /// <param name="data">The data of the node.</param>
+        /// <returns>True if the deletion is successful, false if the node is not in the tree.</returns>
         public bool Delete(int data)
         {
             Node node = this.root;
@@ -540,6 +555,11 @@ namespace AVL_Tree
             }
         }
 
+        /// <summary>
+        /// Checks if the tree contains a node.
+        /// </summary>
+        /// <param name="data">The node to search for.</param>
+        /// <returns>True if the tree contains the node, no otherwise.</returns>
         public bool Contains(int data)
         {
             Node current = this.root;
@@ -558,17 +578,27 @@ namespace AVL_Tree
             return false;
         }
 
+        /// <summary>
+        /// Clears all nodes in the tree.
+        /// </summary>
         public void Clear()
         {
             this.root = null;
+            this.size = 0;
         }
 
-        public void print()
+        /// <summary>
+        /// Prints all nodes on the console.
+        /// </summary>
+        public void DummyPrint()
         {
-            printNode(this.root);
+            DummyPrintNode(this.root);
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Prints all nodes on the console.
+        /// </summary>
         public void PrintLinear()
         {
             foreach (int node in this)
@@ -578,13 +608,13 @@ namespace AVL_Tree
             Console.WriteLine();
         }
 
-        private void printNode (Node node)
+        private void DummyPrintNode (Node node)
         {
             if(node == null )return;
             Console.WriteLine(node.Data + " l " + (node.Left != null ? node.Left.Data : 0));
             Console.WriteLine(node.Data + " r " + (node.Right != null ? node.Right.Data : 0));
-            printNode(node.Left);
-            printNode(node.Right);
+            DummyPrintNode(node.Left);
+            DummyPrintNode(node.Right);
         }
         
         public IEnumerator GetEnumerator()

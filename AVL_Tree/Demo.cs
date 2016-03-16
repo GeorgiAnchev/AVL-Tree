@@ -48,7 +48,7 @@ namespace AVL_TreeDemo
             tree.Insert(7);
             tree.Insert(6);
             tree.Insert(5);
-            tree.print();
+            tree.DummyPrint();
             //tree.RotateRight(tree.root);
             //tree.print();
 
@@ -75,7 +75,7 @@ namespace AVL_TreeDemo
             tree.Insert(43);
             tree.Insert(6);
             tree.Insert(5);
-            tree.print();
+            tree.DummyPrint();
 
             tree.Delete(57);
             tree.Delete(87);
@@ -83,7 +83,7 @@ namespace AVL_TreeDemo
             bool succesful1 = tree.Delete(100);
             bool succesful2 = tree.Delete(12);
             tree.Delete(17);
-            tree.print();
+            tree.DummyPrint();
 
             foreach(int node in tree)
             {
